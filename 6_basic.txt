@@ -1,0 +1,69 @@
+### >>> artinya baris yang di ekskusi oleh aplikasi python secara langsung 
+
+# FUNCTIONS : digunakan untuk mengabungkan banyak actions kedalam sebuah single proses untuk dapat digunakan kembali nanti.
+# bentuk dari fungsi seperti ini: def doesNothing():
+			             pass
+# def  : defini or declare sebuah fungsi
+# ()   : INPUT arguments passsed in here
+# pass : code utama kita disini
+
+# cara membuat fungsi
+>>> def doesNothing():
+...     pass
+... 
+
+# cara memangil fungsi yang kita buat tadi
+>>> doesNothing()
+
+# RETURN : sebuah cara agar OUTPUT mengembalikan data dari sebuah fungsi
+>>> def makeOne():
+...     return 1
+... 
+>>> x = makeOne()
+>>> print x
+1
+# mengembalikan nilanya menjadi 1 'return 1'
+
+# ARGUMENTS : sebuah cara untuk INPUT atau pass kedalam data ke sebuah fungsi
+# INPUT (arguments) OUTPUT(return)
+
+# argument types reguler argments bentuknya : def myFunc(var1):
+# argument types keyword arguments bentuknya : def myFunc(var2, = 3): keyword args set DEFAULT value  mungkin dapat overridden
+>>> def addTen(myInt):
+...     myInt += 10
+...     return myInt
+... 
+>>> x = 12
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'addTen', 'doesNothing', 'makeOne', 'x']
+>>> y = addTen(x)
+>>> print x,y
+12 22
+# kenapa nilai varible y dapat diambah 10? karena variable yang dibuat adalah global
+
+# LOCAL VS GLOBAL Variable
+# LOCAL " variable dibuat dan menyimpan dengan sebuah fungsi yang akan menghapus dari memory ketika fungs ini aktif.
+# bentuknya def myFunc():
+		LocalVar = 5
+
+# GLOBAL "varible yang mengakses dimana saja dengan program, uses keyword global"
+# glvar = 5
+# def myFunc():
+# 	global glvar
+
+# COMMENT and DOCUMENTING : tidak terlalu penting untuk code saat dijalankan, fungsi utamanya digunakan untuk debungging dan breaking down code dari programer lain
+# DOCUMENT STRING : text describing fungsi berasal dari situasi saat fungsi dibuat, gunakan triple quotes untuk ditutup
+
+# COMMENT : katakan program untuk abaikan sengalanya setelah sebuah baris , deklarasi dengan tanda # symbol, biasanya digunakan untuk nulis notes atau abaikan dari code
+>>> def myFunc():
+...     '''
+...     i document something
+...     '''
+... #only seen in code view, comp ignore
+...     pass
+... 
+>>> print myFunc.__doc__
+
+	i document something
+
+

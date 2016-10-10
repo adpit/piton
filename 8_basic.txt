@@ -1,0 +1,113 @@
+# CLASS
+
+class packing variable dan fungsi bersaaman.
+
+contoh dalam game ada artibut berupa health (variable) dan ada actions berupa run (fungsi)
+
+cara buat class contoh sederhana:
+buat file baru dengan ahkiran .py dan namakan classes_example.py
+class Test:
+	pass
+x = Test()
+
+ket:
+class 	   : diawali dengan class keyword, 
+Test 	   : selalu di mulai dengan awalan kapital untuk nama class
+x = Test() : buat class itu sama seperti call sebuah fungsi
+
+# SELF pada CLASS  : digunakan untuk attach varible dan fungsi ke sebuah class 
+# self.myVar = 5
+# def myFungsi (self):
+# ini dapat di artikan bebas hai ini adalah fungsi di attach untuk saya,
+
+contoh:
+
+class Ph:
+	def printHam(self) 	# jika kita kosongkan tidak isikan 'self' maka akan TypeError karena tidak ada argument
+		print "ham"
+x = Ph()			# buat classnya, sama seperti call sebuah fungsi
+x.printHam()			# hasilnya adalah ham dari argument 'self'	
+
+# INITIALIZATION pada class 
+# juga disebut "constructor", fungsi berjalan ketika class DIBUAT
+# kita edit contoh sebelumnya class dengan memasukan constructor:
+
+contoh salah dalam constructor pada class
+
+class Ph:
+        def __init__(self): # ini disebut constructor doble underskor init doble underskor nama dari fungsi python constructor , self argument
+                self.y = 5  # ini adalah varible saya
+                z = 5       # variable z tidak disimpan dalam class karena bukan nilai local karena tidak disimpan maka di baris ahkir error. 
+        def printHam(self):
+                print 'ham'
+x = Ph()
+x.printHam()
+print x.y       # hasilnya ham dan 5    
+print x.z       # error AttributeError: Ph instance has no attribute 'z'
+
+contoh yang benar constructor pada class : 
+
+class Ph2:
+        def __init__(self): # ini disebut constructor penulisannya: doble underskor init doble underskor nama dari fungsi python constructor , self argument
+                self.y2 = 5  # ini adalah varible saya
+                self.printHam() # varibelnya diubah ke local
+        def printHam(self):
+                print 'ham'
+x2 = Ph()
+x2.printHam()
+print x2.y2       # hasilnya ham dan 5
+
+# CLASS HERO
+class Hero:                                # class yang didefinisikan di awali dengan huruf besar
+        '''
+        A hero with alergi to apples
+        '''
+
+        def __init__(self,name):           # argument nama apa saja akan disimpan di self.name
+                '''
+                namai apa saja
+                '''
+
+                self.name = name           # any name dalam argument akan disimpan disni
+                self.health = 100
+        def eat(self,food):
+                if(food == 'apple'):       # masukan if simple untuk cek foodnya  apa sama dengan apple?
+                        self.health -= 100 # jika dia makan apple maka akan mati heheh
+                elif(food == 'ham'): 
+                        self.health += 20 # makan ham naik darah jadi 20
+# ahkir dari class definisi
+Bob = Hero("Bob")                          # 
+print Bob.name                             # print      
+print Bob.health                           # print
+Bob.eat('ham')                     # bob makan apple    
+print Bob.health                           # print  
+
+
+# quiz pertama
+class Ham:
+        def __init__(self):
+                self.name = 'ham'
+                self.healthBonus = 10
+class Hero:
+        def __init__(self):
+                self.health = 100
+        def eat (self,food):
+                self.health += food.healthBonus
+bob = Hero()
+ham = Ham()
+bob.eat(ham)
+print bob.health
+
+# quiz ke dua
+class AddFive:
+        def add(self,var):
+                return var + 5
+class Num:
+        def __init__(self,value):
+                self.val = value
+                self.otherVal = None
+n = Num(15)
+a5 = AddFive()
+n.otherVal = a5.add(n.val)
+print n.val, n.otherVal
+

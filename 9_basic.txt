@@ -1,0 +1,20 @@
+# SIMPLE SKRIP UNTUK MEMBUAT FILE
+
+# buat sebuah text file.
+# python, c/c++, sharders,html, dll semua dasarnya adalah TEXT files
+# tulis sebuah skrip untuk menulis skrip lain!!
+
+# goalnya buat sebuah file "month_day_year.txt" dengan isian file 30 baris kosong
+# buat sebuah folder letslearn -> touch createTextFile.py
+def createFile(dest): # ini akan membuat string 
+        print dest
+
+if __name__ == '__main__':      # hai file name jika sama dengan main maka akan memangil fungsi untuk create file (ini adalah bagian file utama)
+        createFile('ham')
+        raw_input('done!!')
+
+# bariis diatas hanya akan hasilkan kata ham dan done!!
+
+
+# modif skrip dengan penambahan import module
+

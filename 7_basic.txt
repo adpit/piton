@@ -1,0 +1,148 @@
+# PYTHON FILE #
+
+file python terbagi atas .py .pyw dan .pyc
+
+.pyc adalah compile python
+.pyw adalah writable yang dapat diubah 
+
+keutungan dari membuat skrip python menjadi python skrip :
+fleksible, dan editable, save for reuse in future, no more retyping, run whenerver ready
+
+bagaimana cara buat file python? windows -> klikanan -> textdokumen -> edit .txt menjadi .py
+.py untuk menjalakan file menjadi skrip python
+
+klik kanan filenya lalu edit dengan isikan :
+
+print 'super ham'
+raw_input("press enter to end this awesome script:")
+
+pada linux -> ketik python namafile.py nanti cek hasilnya
+
+raw_input (merupakan salah satu fungsi): sebauh cara untuk mendapatkan input user melalui keyboard
+
+bagaimana cara mmenyimanya kedalam sebuah variable
+
+print 'super ham'
+d = raw_input("press enter to end this awesome script:")
+
+# membuat game python # 
+touch guessinggame.py
+highest = 10 # sama dengan 10
+answer = 7
+guess = raw_input("Guess a number from 0 to %d: "%highest) # %d sebagai bilangan integer
+while (int(guess) != answer): 		# apapun yang klien masukan dan tidak sama dengan varible answer maka skrip akan diekskusi
+	if (int(guess) < answer):	# hai if guess lebih besar dari answer maka higger jika tidak maka lower
+		print "answer is higher"
+	else:
+		print "answer is lower"
+	guess = raw_input("Guess a number from 0 to %d: "%highest) # jika jawaban tidak sesuai maka promtp ini akan ters keluar
+raw_input("You are an winner face!!!")	# ini sebagai pintu keluar dari while jika jawaban sudah benar,guess sama dengan variable answer 
+
+kita coba jalankan 
+$ python game1.py 
+Guess a number from 0 to 10: 4
+answer is higher
+Guess a number from 0 to 10: 8
+answer is lower
+Guess a number from 0 to 10: 7
+You are an winner face!!!
+
+IMPORTIN : akses fungsi, claass dan variable dari file lain 
+import random
+
+import 	: keyword 
+randaom : libray or file
+
+kembali ke game sebelumnya kita akan tambahkan module agar lebih menarik kita buat jawabanya menjadi random, dengan: import random
+
+touch game2.py
+import random
+highest = 10 # sama dengan 10
+answer = random.randrange(highest) # dari module random akses fungsi randrange, fungsi ini untuk dapatkan angka 0 dari berapa saja dalam kasus ini 10
+guess = raw_input("Guess a number from 0 to %d: "%highest) # %d sebagai bilangan integer
+while (int(guess) != answer):           # apapun yang klien masukan dan tidak sama dengan varible answer maka skrip akan diekskusi
+        if (int(guess) < answer):       # hai if guess lebih besar dari answer maka higger jika tidak maka lower
+                print "answer is higher"
+        else:
+                print "answer is lower"
+        guess = raw_input("Guess a number from 0 to %d: "%highest) # jika jawaban tidak sesuai maka promtp ini akan ters keluar
+raw_input("You are an winner face!!!")  # ini sebagai pintu keluar dari while jika jawaban sudah benar,guess sama dengan variable answer
+
+kita tes skripnya, disini jawabnya menjadi random kita tidak tau random antara 0-10 sesuai dengan varible highest 
+python game2.py 
+Guess a number from 0 to 10: 2
+answer is lower
+Guess a number from 0 to 10: 1
+answer is lower
+Guess a number from 0 to 10: 0
+You are an winner face!!!
+
+# SEPERATE FILES 
+
+break up code kedalam modules atau chunk sesuai fungsinya, untuk mencegah file yang terlalu besar dengan scroll yang tidak ada hentinya, lebih mudah kita dalam memanagenya, memudahkan untuk pengunaan kembali nantinya.
+
+kita punya beberapa file fungsi dan kita ingin mengunakan kedalam sebuah file bagaimana caranya? 
+semua file harus berada pada satu folder.
+perhatikan nama filenya pastikan dapat jelas saat digunakan 
+
+buat file baru degan nama PH.py
+def printHam():
+	print "ham"
+simpan 
+
+dan buat file lain dengan nama main.py
+import PH
+# buat simple loops untuk PH 
+for i in range(10):
+	PH.printHam() # langsung saja karena kita belum ada argument di file PH
+raw_input("END OF LINE")
+simpan
+
+contoh saat eksekusi 
+ade@ade-Latitude-E6230 ~/game $ python PH.py 
+ade@ade-Latitude-E6230 ~/game $ python main.py 
+ham
+ham
+ham
+ham
+ham
+ham
+ham
+ham
+ham
+ham
+END OF LINE
+
+QUIZZZ
+
+soal1
+buat file dengan nama f1.py
+def tes1():
+	pass		# deklarasi fungsi hanya pass
+def printHam():
+	print 'ham'	# deklarasi fungsi hanya cetak kata ham
+
+
+lalu buat file kedua dengan nama quis7.1.py 
+print dir()		# dir() disini untuk melihat ada fungsi apa saja yang di dkelarasikan sebelum import
+			# contoh ['__builtins__', '__doc__', '__file__', '__name__', '__package__']
+from f1 import *
+print dir()		# dir() dilakukan setelah import sebuah file, kita dapat cek fungsi apa saja yang ada di file f1 tersebut dan kita dapati adalah printHam()
+			# contoh ['__builtins__', '__doc__', '__file__', '__name__', '__package__', 'printHam', 'tes1']
+
+printHam()		# lalu kita pangil salah satu fungsinya dengan ini			
+raw_input("DONE!")
+
+soal2
+buat file dengan nama f2.py
+def test1():
+	print "testing"
+
+def printHam():
+	print 'ham'
+
+lalu buat file kedua dengan nama quis7.2.py
+import f2 as f # mengimport file sebagai sebuah huruf.
+f.test1()
+f.printHam()
+
